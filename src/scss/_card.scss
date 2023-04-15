@@ -1,0 +1,117 @@
+.chart-container{
+    margin-top: 3rem;
+    background-color: $very-pale-orange;
+    padding: 1rem;
+    border-radius: 10px;
+    @include breakpoint-up(medium){
+        padding: 1rem 2rem;
+    }
+    .chart-heading{
+        margin-bottom: 3rem;
+        h1{
+            font-size: 20px;
+            @include breakpoint-up(medium){
+                font-size: 26px;
+            }
+            @include breakpoint-up(large){
+                font-size: 30px;
+            }
+
+        }
+    }
+    .chart-area{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        align-items: end;
+        grid-column-gap: 10px;
+        text-align: center;
+        @media (min-width: 600px) {
+            grid-column-gap: 30px;
+        }
+        @include breakpoint-up(medium){
+            grid-column-gap: 15px;
+        }
+        .bar-chart{
+           @include breakpoint-up(medium){
+            width: 80%;
+            margin: 0 auto;
+           }
+            .bar{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                background-color: $soft-red;
+                width: 100%;
+                border-radius: 5px;
+                transition: all ease-in-out 0.4s;
+                margin-bottom: 0.4rem;
+                &.active-day{
+                    background-color: cyan;
+                }
+                &:hover{
+                    background-color: $cream;
+                    .tooltip{
+                        display: inline-block;
+                        opacity: 1;
+                    }
+                }
+            }
+            .tooltip{
+                position: absolute;
+                top: -35px;
+                left: -4px;
+                // right: 0;
+                width: 137%;
+                background-color: $dark-brown;
+                color: #fff;
+                padding: 0.3rem 0.2rem;
+                font-size: 12px;
+                display: none;
+                opacity: 0;
+                transition: all ease-in-out 0.4s;
+                @include breakpoint-up(medium){
+                    left: -8px;
+                    font-size: 15px;
+                    // width: 120%;
+                }
+
+            }
+        }
+    }
+
+    .horizontal-line{
+        height: 1px;
+        margin: 2rem 0;
+        background-color: $cream;
+    }
+
+    .chart-bottom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        p{
+            color: $medium-brown;
+        }
+        h2,
+        span{
+            color: $dark-brown;
+        }
+        .bottom-left{
+        h2{
+            @include breakpoint-up(medium){
+                font-size: 3rem;
+            }
+        }
+        }
+        .bottom-right{
+            margin-top: 0.5rem;
+            align-self: flex-end;
+            span{
+                font-weight: 700;
+            }
+            text-align: right;
+        }
+    }
+}
